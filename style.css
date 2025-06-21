@@ -177,12 +177,19 @@ body {
 	color: #a1a1a1;
 }
 
-.icon-box i {
-	font-size: 24px;
-	color: #fff;
-	background: #b388d2;
-	padding: 12px;
+.icon-box {
+	width: 48px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	border-radius: 50%;
+	background-color: #b388d2;
+}
+
+.icon-box i {
+	font-size: 20px;
+	color: #fff;
 }
 
 /* Right side chart section */
@@ -210,12 +217,12 @@ body {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 20px;
-	padding: 30px;
+	padding: 20px;
 }
 
 .widget-card {
 	background: #fff;
-	padding: 20px;
+	padding: 15px;
 	border-radius: 8px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -226,17 +233,58 @@ body {
 	margin-bottom: 15px;
 }
 
-.calendar-input {
-	width: 100%;
-	padding: 10px;
-	font-size: 16px;
-	border: 1px solid #ccc;
-	border-radius: 6px;
-	background-color: #f9f9f9;
-}
-
 .browser-card canvas {
 	width: 100% !important;
 	height: 250px !important;
 	display: block;
+}
+
+#calendar {
+	padding: 20px;
+	border-radius: 8px;
+	background-color: #fff;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	font-weight: bold;
+	color: #444a53;
+}
+
+.calendar-header button {
+	background-color: #7c3aed;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.calendar-body {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 5px;
+}
+
+.day-name {
+	text-align: center;
+	font-weight: bold;
+	color: #888;
+}
+
+.date-cell {
+	text-align: center;
+	padding: 8px;
+	background-color: #f1f1ff;
+	border-radius: 6px;
+	color: #333;
+	cursor: pointer;
+}
+
+.empty-cell {
+	height: 32px;
 }
