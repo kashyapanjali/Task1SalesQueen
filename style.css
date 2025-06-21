@@ -18,6 +18,9 @@ body {
 	background: rebeccapurple;
 	width: 300px;
 	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 
 #menu .logo {
@@ -76,6 +79,8 @@ body {
 
 #interface {
 	width: calc(100% - 300px);
+	margin-left: 300px;
+	position: relative;
 }
 #interface .navigation {
 	display: flex;
@@ -84,6 +89,8 @@ body {
 	background: #fff;
 	padding: 15px 30px;
 	border-bottom: 3px solid #594ef7;
+	position: fixed;
+	width: calc(100% - 300px);
 }
 
 #interface .navigation .search {
@@ -122,11 +129,26 @@ body {
 	border-radius: 50%;
 }
 
+.n1 {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#menu-btn {
+	display: none;
+	color: #2b2b2b;
+	font-size: 20px;
+	cursor: pointer;
+	margin-right: 20px;
+}
+
 .i-name {
 	color: #444a53;
 	padding: 30px 30px 0 30px;
 	font-size: 24px;
 	font-weight: 700;
+	margin-top: 70px;
 }
 .dashboard-row {
 	display: flex;
@@ -134,7 +156,6 @@ body {
 	gap: 30px;
 	padding: 30px;
 }
-
 /* Left: Restore 2x2 grid design */
 .values {
 	flex: 1;
@@ -145,7 +166,7 @@ body {
 }
 
 /* Individual cards */
-.val-box {
+.values .val-box {
 	background: #fff;
 	display: flex;
 	justify-content: space-between;
@@ -220,7 +241,7 @@ body {
 			1fr
 		);
 	gap: 20px;
-	padding: 20px;
+	padding: 30px;
 }
 
 .widget-card {
@@ -287,4 +308,127 @@ body {
 
 .empty-cell {
 	height: 32px;
+}
+
+/* General responsive adjustments */
+@media (max-width: 1024px) {
+	.dashboard-row {
+		flex-direction: column;
+	}
+
+	.values,
+	.charts-section {
+		max-width: 100%;
+		width: 100%;
+	}
+
+	.values {
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 16px;
+	}
+
+	.charts-section {
+		margin-top: 20px;
+	}
+
+	.dashboard-widgets {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 16px;
+		padding: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.values {
+		grid-template-columns: 1fr;
+		padding: 0 15px;
+	}
+
+	.charts-section {
+		padding: 0 15px;
+	}
+
+	.dashboard-widgets {
+		grid-template-columns: 1fr;
+		padding: 15px;
+	}
+
+	.chart-card canvas,
+	.browser-card canvas {
+		height: 220px !important;
+	}
+
+	iframe {
+		height: 200px;
+	}
+}
+
+@media (max-width: 769px) {
+	#menu {
+		width: 270px;
+		position: fixed;
+		left: -270px;
+		transition: 0.3s ease;
+	}
+	#menu.active {
+		left: 0px;
+	}
+	#menu-btn {
+		display: initial;
+	}
+	#interface {
+		width: 100%;
+		margin-left: 0px;
+		display: inline-block;
+		transition: 0.3s ease;
+	}
+
+	#menu.active ~ #interface {
+		width: calc(100%-270px);
+		margin-left: 270px;
+	}
+
+	#interface .navigation {
+		width: 100%;
+	}
+
+	.values {
+		justify-content: flex-start;
+	}
+	.values .val-box {
+		padding: 16px 20px;
+		margin: 10px 20px 10px 0;
+	}
+
+	#dashboard-widgets {
+		width: 92%;
+		padding: 0;
+		overflow-x: auto;
+	}
+}
+
+/* for mobile devices */
+
+@media (max-width: 477px) {
+	#interface .navigation {
+		padding: 15px;
+	}
+	#interface .navigation .search input {
+		width: 150px;
+	}
+	.i-name {
+		padding: 30px 15px 0 15px;
+	}
+
+	.values {
+		padding: 15px 15px 0 15px;
+	}
+	.values .val-box {
+		width: 100%;
+		margin: 8px 0px 0px;
+	}
+
+	#dashboard-widgets {
+		margin: 30px 15px 30px 15px;
+	}
 }
