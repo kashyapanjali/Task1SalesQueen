@@ -204,3 +204,39 @@ body {
 	font-size: 18px;
 	color: #444a53;
 }
+
+/* buttom part */
+.dashboard-widgets {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
+	padding: 30px;
+}
+
+.widget-card {
+	background: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.widget-card h3 {
+	font-size: 18px;
+	color: #444a53;
+	margin-bottom: 15px;
+}
+
+.calendar-input {
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	background-color: #f9f9f9;
+}
+
+.browser-card canvas {
+	width: 100% !important;
+	height: 250px !important;
+	display: block;
+}
