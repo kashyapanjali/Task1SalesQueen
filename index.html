@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Admin Dashboard</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+		<link
+			rel="stylesheet"
+			href="style.css" />
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	</head>
+	<body>
+		<section id="menu">
+			<div class="logo">
+				<img
+					src="images/image1.png"
+					alt="" />
+				<h2>Admin</h2>
+			</div>
+
+			<div class="items">
+				<h4>Pages</h4>
+				<li>
+					<i class="fas fa-chart-line"></i>
+					<a href="#">Dashboard</a>
+				</li>
+				<li>
+					<i class="fas fa-user"></i>
+					<a href="#">Profile</a>
+				</li>
+				<li>
+					<i class="fas fa-sign-in-alt"></i>
+					<a href="#">SignIn</a>
+				</li>
+				<li>
+					<i class="fas fa-user-plus"></i>
+					<a href="#">SignUp</a>
+				</li>
+				<li>
+					<i class="fa-solid fa-clipboard"></i>
+					<a href="#">Blank</a>
+				</li>
+			</div>
+
+			<div class="items">
+				<h4>Tools and Components</h4>
+				<li>
+					<i class="fa-solid fa-stop"></i>
+					<a href="#">Buttons</a>
+				</li>
+				<li>
+					<i class="fa-brands fa-wpforms"></i>
+					<a href="#">Forms</a>
+				</li>
+				<li>
+					<i class="fa-solid fa-grip"></i>
+					<a href="#">Cards</a>
+				</li>
+				<li>
+					<i class="fas fa-chart-line"></i>
+					<a href="#">Typograpy</a>
+				</li>
+				<li>
+					<i class="fa-solid fa-icons"></i>
+					<a href="#">Icons</a>
+				</li>
+			</div>
+
+			<div class="items">
+				<h4>Plugins</h4>
+				<li>
+					<i class="fa-solid fa-chart-bar"></i>
+					<a href="#">Charts</a>
+				</li>
+				<li>
+					<i class="fa-solid fa-map"></i>
+					<a href="#">Maps</a>
+				</li>
+			</div>
+		</section>
+
+		<!-- home page -->
+
+		<section id="interface">
+			<div class="navigation">
+				<div class="n1">
+					<div class="search">
+						<i class="fa-solid fa-magnifying-glass"></i>
+						<input
+							type="text"
+							placeholder="Search" />
+					</div>
+				</div>
+
+				<div class="profile">
+					<i class="far fa-bell"></i>
+					<img
+						src="images/1.jpg"
+						alt="" />
+				</div>
+			</div>
+
+			<h3 class="i-name">Analytics Dashboard</h3>
+
+			<div class="values">
+				<div class="val-box">
+					<div class="left">
+						<h4>Sales</h4>
+						<h3>2.382</h3>
+						<p class="value">-3.65% <span>Since last week</span></p>
+					</div>
+					<div class="icon-box">
+						<i class="fa-solid fa-truck"></i>
+					</div>
+				</div>
+				<div class="val-box">
+					<div class="left">
+						<h4>Earnings</h4>
+						<h3>$21.300</h3>
+						<p class="value">6.65% <span>Since last week</span></p>
+					</div>
+					<div class="icon-box">
+						<i class="fa-solid fa-truck"></i>
+					</div>
+				</div>
+				<div class="val-box">
+					<div class="left">
+						<h4>Visitors</h4>
+						<h3>14.212</h3>
+						<p class="value">5.25% <span>Since last week</span></p>
+					</div>
+					<div class="icon-box">
+						<i class="fa-solid fa-truck"></i>
+					</div>
+				</div>
+				<div class="val-box">
+					<div class="left">
+						<h4>Orders</h4>
+						<h3>64</h3>
+						<p class="value">2.65% <span>Since last week</span></p>
+					</div>
+					<div class="icon-box">
+						<i class="fa-solid fa-truck"></i>
+					</div>
+				</div>
+
+				<!-- chart section -->
+				<div class="charts-section">
+					<div class="chart-card">
+						<h3>Recent Movement</h3>
+						<canvas id="recentChart"></canvas>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script>
+			const ctx = document.getElementById("recentChart").getContext("2d");
+			const recentChart = new Chart(ctx, {
+				type: "line",
+				data: {
+					labels: [
+						"Jan",
+						"Feb",
+						"Mar",
+						"Apr",
+						"May",
+						"Jun",
+						"Jul",
+						"Aug",
+						"Sep",
+						"Oct",
+						"Nov",
+						"Dec",
+					],
+					datasets: [
+						{
+							label: "Activity",
+							data: [
+								1000, 1200, 1300, 1100, 1500, 1700, 1600, 1800, 2200, 2600,
+								3000, 3300,
+							],
+							fill: true,
+							backgroundColor: "rgba(124, 58, 237, 0.1)",
+							borderColor: "#7c3aed",
+							tension: 0.4,
+						},
+					],
+				},
+				options: {
+					responsive: true,
+					plugins: {
+						legend: { display: false },
+					},
+					scales: {
+						y: { beginAtZero: false },
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
