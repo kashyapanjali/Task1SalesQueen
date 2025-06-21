@@ -51,4 +51,4 @@ project/
 
 ### Desktop View
 
-![Dashboard Desktop View](images/dashboard.png)
+![Dashboard Desktop View](images/dashboardImage.png)
